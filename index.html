@@ -12,9 +12,9 @@
 
 #resume {
         position: absolute;
-	width: 200px;
-        border: white;
-        background: white;
+	    width: 200px;
+        border: none;
+        background: transparent;
         outline: 0;
         left: 50%;
         margin-left: -112px;
@@ -39,8 +39,8 @@
 #aboutme {
         position: absolute;
 	width: 200px;
-        border: white;
-        background: white;
+        border: none;
+        background: transparent;
         outline: 0;
         left: 50%;
         margin-left: -112px;
@@ -65,8 +65,8 @@
 #projects {
         position: absolute;
 	width: 200px;
-        border: white;
-        background: white;
+        border: none;
+        background: transparent;
         outline: 0;
         left: 50%;
         margin-left: -112px;
@@ -90,9 +90,9 @@
 
 #contact {
         position: absolute;
-	width: 200px;
-        border: white;
-        background: white;
+	    width: 200px;
+        border: none;
+        background: transparent;
         outline: 0;
         left: 50%;
         margin-left: -112px;
@@ -124,7 +124,7 @@
         font-family: "Times New Roman";
         font-size: 40px;
         text-align: center;
-        background: white;
+        background: transparent;
         z-index: 9999;
 }
 
@@ -147,6 +147,12 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
 }
     
 
@@ -364,7 +370,7 @@ class ContactButton extends MyButton {
                         for (var i = 0; i < lines.length; i++) {
                                     if (lines[i].getAttribute("id") != "contactline")
                                     lines[i].style.width = 40 + 'px';
-                            }
+                        }
                 }
                 super.callback();
                 var len = 40;
@@ -492,7 +498,7 @@ function new_shapes(count) {
                 curr_shape.img = document.createElement('object');
                 curr_shape.img.data = curr_shape.src;
                 curr_shape.img.name = "shape";
-                curr_shape.img.style.width = ((Math.random() * 400) + 50) + 'px';
+                curr_shape.img.style.width = ((Math.random() * 400) + 150) + 'px';
                 curr_shape.img.style.height = curr_shape.img.style.width;
                 curr_shape.img.style.top = (Math.random() * height) + 1 + 'px';
                 curr_shape.img.style.left = acceptable_left();
