@@ -12,7 +12,7 @@
 
 #resume {
         position: absolute;
-	    width: 200px;
+        width: 200px;
         border: none;
         background: transparent;
         outline: 0;
@@ -142,11 +142,6 @@
 [name='shape'] {
         position: absolute;
         z-index: 1;
-    
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     
         -webkit-filter: blur(3px);
         -moz-filter: blur(3px);
@@ -444,7 +439,6 @@ function contents(label) {
         + "<br/>Email: Avram.Block@tufts.edu<br/>"
         + "<br/>Address: 165 Cambridge Turnpike<br/>"
         + "<br/>Concord, MA 01742<br/>";
-        //+ "<br/><a href=\"http://www.google.com\">Instagram</a>";
         var projects = "";
         
         switch (label) {
@@ -487,11 +481,11 @@ function shapes() {
 
 function new_shapes(count) {
     
-            var pos_shapes = ["line1.png", "line2.png", "line3.png", "line4.png", "line5.png", 
+        var pos_shapes = ["line1.png", "line2.png", "line3.png", "line4.png", "line5.png", 
                             "line6.png", "line7.png", "line8.png", "line9.png", "line10.png",
                             "line11.png", "line12.png", "line13.png", "line14.png"];
-    
-            for (var i = 0; i < count; i++) {
+        
+        for (var i = 0; i < count; i++) {
                 var curr_shape = {dir: 0, orientation: 0, speed: (Math.random() * 10) + 1, src: pos_shapes[Math.floor(Math.random() * 14)], img: 0};
                 curr_shape.orientation = ((Math.random() > 0.5) ? 'vert' : 'hor');
                 curr_shape.dir = ((Math.random() > 0.5) ? 'up' : 'down');
@@ -501,19 +495,11 @@ function new_shapes(count) {
                 curr_shape.img.style.width = ((Math.random() * 400) + 150) + 'px';
                 curr_shape.img.style.height = curr_shape.img.style.width;
                 curr_shape.img.style.top = (Math.random() * height) + 1 + 'px';
-                curr_shape.img.style.left = acceptable_left();
+                curr_shape.img.style.left = (Math.random() * width) + 1 + 'px';
                 document.getElementById('background').appendChild(curr_shape.img);
                 visible.push(curr_shape);
         }
 }
-    
-function acceptable_left() {
-    var rand = ((Math.random() * width) + 1);
-    if (( rand <= 500) || (rand >= 700))
-            return rand + 'px';
-    else return acceptable_left();
-}
-
 </script>
 
 </body>
