@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<title>Avram Block</title>
+<style>
+
+#buttonarea {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+}
+
+#resume {
+        position: absolute;
+	width: 200px;
+        border: white;
+        background: white;
+        outline: 0;
+        left: 50%;
+        margin-left: -112px;
+        top: 235px;
+        font-family: "Times New Roman";
+        font-size: 30px;
+        text-align: center;
+        z-index: 9999;
+}
+
+#resline {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: black;
+        left: 49.5%;
+        margin-left: -20px;
+        top: 285px;
+        z-index: 9999;
+}
+
+#aboutme {
+        position: absolute;
+	width: 200px;
+        border: white;
+        background: white;
+        outline: 0;
+        left: 50%;
+        margin-left: -112px;
+        top: 315px;
+        font-family: "Times New Roman";
+        font-size: 30px;
+        text-align: center;
+        z-index: 9999;
+}
+
+#aboutline {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: black;
+        left: 49.5%;
+        margin-left: -20px;
+        top: 365px;
+        z-index: 9999;
+}
+
+#projects {
+        position: absolute;
+	width: 200px;
+        border: white;
+        background: white;
+        outline: 0;
+        left: 50%;
+        margin-left: -112px;
+        top: 395px;
+        text-align: center;
+        font-family: "Times New Roman";
+        font-size: 30px;
+        z-index: 9999;
+}
+
+#projectline {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: black;
+        left: 49.5%;
+        margin-left: -20px;
+        top: 450px;
+        z-index: 9999;
+}
+
+#contact {
+        position: absolute;
+	width: 200px;
+        border: white;
+        background: white;
+        outline: 0;
+        left: 50%;
+        margin-left: -112px;
+        top: 475px;
+        text-align: center;
+        font-family: "Times New Roman";
+        font-size: 30px;
+        z-index: 9999;
+}
+
+#contactline {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: black;
+        left: 49.5%;
+        margin-left: -20px;
+        top: 525px;
+        z-index: 9999;
+}
+
+#name {
+        position: absolute;
+        width: 250px;
+        height: 50px;
+        left: 50%;
+        margin-left: -125px;
+        top: 150px;
+        font-family: "Times New Roman";
+        font-size: 40px;
+        text-align: center;
+        background: white;
+        z-index: 9999;
+}
+
+#content {
+        position: absolute;
+        width: 600px;
+        height: 800px;
+        left: 50%;
+        top: 110px;
+        margin-left: -300px;
+        border: 2px;
+        z-index: 9999;
+}
+
+[name='shape'] {
+        position: absolute;
+        z-index: 1;
+    
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+    
+
+</style>
+<div id="name"> Avram Block </div>
+<body>
+
+<p>
+<div id="buttonarea"></div>
+<div class="line" id="resline"></div>
+<div class="line" id="aboutline"></div>
+<div class="line" id="projectline"></div>
+<div class="line" id="contactline"></div>
+<div class="background" id="background"></div>
+</p>
+
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+</div>
+
+<script>
+var clickedmode;
+    
+var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+window.onload = function () {
+        clickedmode = false;
+        buttons = [];
+        buttons.push(new ResButton("Resume", "resume"));
+        buttons.push(new AbtButton("About Me", "aboutme"));
+        buttons.push(new ProjButton("Projects", "projects"));
+        buttons.push(new ContactButton("Contact Me", "contact"));
+        lines = document.getElementsByClassName("line");
+        shapes();
+}
+
+class MyButton {
+    constructor (label, id) {
+	// Instantiate our captive button and keep a pointer to it in ivar
+	this.button = document.createElement("input");
+	this.button.setAttribute ("id", id);
+        this.button.setAttribute ("type", "button");
+	this.button.setAttribute ("value", label);
+	document.getElementById("buttonarea").appendChild (this.button);
+        //this.button.addEventListener("mouseover", mouseover);
+        this.button.addEventListener("mouseover", function ()
+                { this.style.color = "DarkGray"; } );
+
+        this.button.addEventListener("mouseout", function ()
+                { this.style.color = "Black"; } );
+
+        //this.button.addEventListener("click", toggleslide);
+	// Install our button's event handler
+	this.button.onclick = this.callback;
+    }
+
+    callback() {
+            if (!clickedmode) {
+                    clickedmode = true;
+                    var btn_pos = 40.7;
+                    var name_pos = 0;
+                    var line_pos = 46.5;
+                    var id = setInterval(frame, 25);
+                    function frame() {
+                          if (btn_pos < 10) {
+                                clearInterval(id);
+                          } else {
+                                btn_pos--;
+                                name_pos += 4;
+                                var name = document.getElementById("name");
+                                name.style.top = (160 - name_pos)+ 'px';
+                                for (var i = 0; i < buttons.length; i++) {
+                                        var mb = buttons[i];
+                                        mb.button.style.left = btn_pos + '%';
+                                }
+                                line_pos -= 1.2;
+                                for (var i = 0; i < lines.length; i++) {
+                                    lines[i].style.left = line_pos + '%';
+                                    //curline.style.left = line_pos + '%';
+                                }
+                                var obj = document.createElement('div');
+                                obj.id = 'content';
+                                obj.innerHTML = "";  
+                                document.body.appendChild(obj);
+                          }
+                  }
+          }
+          else {
+                  document.getElementById('content').innerHTML = "";
+          }
+    }
+}
+
+class ResButton extends MyButton {
+        constructor (label, id) {
+                super(label, id);
+        }
+        callback() {
+                if (clickedmode) {
+                            //var content = document.querySelector('object');
+                            //content.removeAttribute('data');
+                            for (var i = 0; i < lines.length; i++) {
+                                    if (lines[i].getAttribute("id") != "resline")
+                                    lines[i].style.width = 40 + 'px';
+                            }
+                }
+                super.callback();
+                var len = 40;
+                var thisline = document.getElementById("resline");
+                var id = setInterval(frame, 25);
+                function frame() {
+                     len++;
+                      if (len > 75) {
+                            clearInterval(id);
+                            document.getElementById('content').style.fontSize = 16 + 'px';
+                            document.getElementById('content').style.textAlign = 'left';
+                            document.getElementById('content').style.width = 600 + 'px';
+                            document.getElementById('content').style.marginLeft = -300 + 'px';
+                            document.getElementById('content').innerHTML = contents('resume');
+                      } else {
+                            thisline.style.width = (2.9*len) + 'px';
+                    }
+                }
+        }
+        /*onscroll() {
+            this.scrollTop = 1;
+        }*/
+}
+
+class AbtButton extends MyButton {
+        constructor (label, id) {
+                super(label, id);
+        }
+
+        callback() {
+                if (clickedmode) {
+                        //var content = document.querySelector('object');
+                        //content.removeAttribute('data');
+                        for (var i = 0; i < lines.length; i++) {
+                                    if (lines[i].getAttribute("id") != "aboutline")
+                                    lines[i].style.width = 40 + 'px';
+                            }
+                }
+                super.callback();
+                var len = 40;
+                var thisline = document.getElementById("aboutline");
+                var id = setInterval(frame, 25);
+                function frame() {
+                     len++;
+                      if (len > 75) {
+                            clearInterval(id);
+                            document.getElementById('content').style.fontSize = 16 + 'px';
+                            document.getElementById('content').style.textAlign = 'center';
+                            document.getElementById('content').style.width = 450 + 'px';
+                            document.getElementById('content').style.marginLeft = -225 + 'px';
+                            document.getElementById('content').innerHTML = contents('about');
+                      } else {
+                            thisline.style.width = (3.2*len) + 'px';
+                    }
+                }
+        }
+       /* onscroll() {
+            this.scrollTop = 1.2;
+        }*/
+}
+
+class ProjButton extends MyButton {
+        constructor (label, id) {
+                super(label, id);
+        }
+
+        callback() {
+                if (clickedmode) {
+                        //var content = document.querySelector('object');
+                        //content.removeAttribute('data');
+                        for (var i = 0; i < lines.length; i++) {
+                                    if (lines[i].getAttribute("id") != "projectline")
+                                    lines[i].style.width = 40 + 'px';
+                            }
+                }
+                super.callback();
+                var len = 40;
+                var thisline = document.getElementById("projectline");
+                var id = setInterval(frame, 25);
+                function frame() {
+                     len++;
+                      if (len > 75) {
+                            clearInterval(id);
+
+                      } else {
+                            thisline.style.width = (3.2*len) + 'px';
+                    }
+                }
+        }
+        /*onscroll() {
+            this.scrollTop = 1.4;
+        }*/
+}
+
+class ContactButton extends MyButton {
+        constructor (label, id) {
+                super(label, id);
+        }
+
+        callback() {
+                if (clickedmode) {
+                        //var content = document.querySelector('object');
+                        //content.removeAttribute('data');
+                        for (var i = 0; i < lines.length; i++) {
+                                    if (lines[i].getAttribute("id") != "contactline")
+                                    lines[i].style.width = 40 + 'px';
+                            }
+                }
+                super.callback();
+                var len = 40;
+                var thisline = document.getElementById("contactline");
+                var id = setInterval(frame, 25);
+                function frame() {
+                     len++;
+                      if (len > 75) {
+                            clearInterval(id);
+                            var obj = document.getElementById('content');
+                            obj.innerHTML = contents('contact');
+                            obj.style.fontSize = 20 + 'px';
+                            obj.style.textAlign = 'center';
+                            obj.style.width = 400 + "px";
+                            obj.style.marginLeft = "-205px";
+                      } else {
+                            thisline.style.width = (3.2*len) + 'px';
+                    }
+                }
+        }
+       /* onscroll() {
+            this.scrollTop = 1.6;
+        }*/
+}
+
+
+function contents(label) {
+        var resume = "<strong>Education</strong><br/>"
+        + "<ul><li><i>Tufts University (2015-2019)</i></li>"
+                + "<ul><li>Major(s): Computer Science, Cognitive and Brain Sciences</li>"
+                + "<li>Academic Interests: Front-end programming, UX/UI design, Human-computer Interaction, AI, AI Ethics</li>"
+                + "<li>Noteworthy Courses: Cognition of Society and Culture, Statistics for Behavioral Scientists, "
+                + "Experimental Psychology, Psychology of Music, Introduction to Cognitive and Brain Sciences, Language and Mind"
+                + "<br/>Data Structures, Object Oriented Programming for GUIs, Machine Structure and Programming, "
+                + "Web Programming, Algorithms</li>"
+                + "<li>Current GPA: 3.70</li></ul>"
+        + "<br/><li><i>Concord Carlisle Regional High School (2011-2015)</i></li>"
+                + "<ul><li>GPA (Weighted): 4.21 – GPA (Unweighted): 3.803</li>"
+                + "<li>Noteworthy Courses: Psychology – Mind, Brain and Behavior, AP Chemistry, AP BC Calculus</li></ul>"
+        + "<br/><li><i>Brown University PreCollege (June 2014)</i></li>"
+        + "<li><i>Boston University School of Education - Neuroscience Lab (September – May 2013)</i></li>"
+        + "<li><i>Boston University Medical School - CityLab Biotechnology Scholar (June 2012)</i></li>"
+        + "</ul><br/><br/>"
+        + "<strong>Experience</strong><br/>"
+        + "<ul><li><i>Research Assistant</i></li>"
+                + "<ul><li>Human Robotic Interaction Lab - Dr. Matthias Scheutz, Tufts University (May - August 2017)</li>"
+                + "<li>Synesthesia Lab - Dr. Ariel Goldberg, Tufts University (June – August 2015)</li>"
+                + "<li>Spatial Cognition Lab – Dr. Holly Taylor, Tufts University (September 2016 – May 2017)</li>"
+                + "<li>Drug Efficacy Lab at School of Pharmacology - Fudan University (Agusut 2014)</li>"
+                + "<li>Boston University CityLab Biotechnology Summer Course (June 2013)</li></ul>"
+        + "<li><i>Caller – Tufts Telefund (November 2015 – May 2016)</i></li>"
+                + "<ul><li>Gained extensive client interaction experience</li></ul>"
+        + "<li><i>Docent/Intern - The Robbins House (August 2013, 2016)</i></li>"
+        + "<li><i>Brand Strategist/Ambassador - Harvard Launch Lab Startup App \"GetMii\" (April - May 2016)</i></li></ul>"
+        + "</ul><br/><br/>"
+        + "<strong>Achievements</strong><br/>"
+        + "<ul><li><i>Dean’s List – Tufts University (Fall 2015, Spring 2016, Fall 2016, Spring 2017)</i></li>"
+        + "<li><i>Participated in Tufts Undergraduate Research and Scholarship Symposium 2017</i></li>"
+        + "<li><i>National Merit Scholarship Commendation</i></li>"
+        + "<li><i>National Honor Society</i</li>"
+        + "</ul><br/><br/>"
+        + "<strong>Skills</strong><br/>"
+        + "<ul><li><i>Basic C/C++, Java, JavaScript, HTML, PHP, CSS, Microsoft Office Suite, Photoshop, Logic Pro X</i></li>"
+        + "<li><i>Customer service, client interaction</i></li>"
+        + "<li><i>Working in and/or leading teams</i></li></ul>";
+        
+        var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
+        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I am currently a Junior at Tufts University, with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with computers and computers behaving more like people in order to facilitate this. Whether this is through programming, Human-Computer Interaction research, Human-Robotic Interaction research, or simply through experimental psychology research on the ways humans approach problems, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
+        + "Outside of my academic interests, I am also involved in several things on and off campus in my life. I am the Music Director for WMFO, Tufts’ radio station. I am also a staff leader for Tufts Wilderness Orientation, a pre-orientation program for incoming students. I play bass guitar, and enjoy practicing and improving at artistic skills like graphic design and fashion design.";
+        var contact = "<br/><br/><br/><br/><br/><br/>Phone: 978-505-2641<br/>"
+        + "<br/>Email: Avram.Block@tufts.edu<br/>"
+        + "<br/>Address: 165 Cambridge Turnpike<br/>"
+        + "<br/>Concord, MA 01742<br/>";
+        //+ "<br/><a href=\"http://www.google.com\">Instagram</a>";
+        var projects = "";
+        
+        switch (label) {
+                case 'resume': 
+                        return resume;
+                        break;
+                case 'about': 
+                        return about;
+                        break;
+                case 'contact':
+                        return contact;
+                        break;
+                case 'project':
+                        return projects;
+                        break;
+        }
+}
+
+var visible = [];       
+function shapes() {
+        new_shapes(7);
+        var id = setInterval(frame, 20);
+        var float = 1;
+        function frame() {
+                float ++;
+                if ((float % 150) == 0) new_shapes(1);
+                for (var i = 0; i < visible.length; i++) {
+                        var curr = visible[i];
+                        var newtop = float * (.11 * curr.speed);
+                        if (curr.dir == 'up'){
+                            newtop *= -1;
+                        }
+                        if (curr.orientation == 'vert') curr.img.style.top = (newtop % height)+ 'px';
+                        if (curr.orientation == 'hor') curr.img.style.left = (newtop % width) + 'px';
+
+                }
+        }
+        
+}
+
+function new_shapes(count) {
+    
+            var pos_shapes = ["line1.png", "line2.png", "line3.png", "line4.png", "line5.png", 
+                            "line6.png", "line7.png", "line8.png", "line9.png", "line10.png",
+                            "line11.png", "line12.png", "line13.png", "line14.png"];
+    
+            for (var i = 0; i < count; i++) {
+                var curr_shape = {dir: 0, orientation: 0, speed: (Math.random() * 10) + 1, src: pos_shapes[Math.floor(Math.random() * 14)], img: 0};
+                curr_shape.orientation = ((Math.random() > 0.5) ? 'vert' : 'hor');
+                curr_shape.dir = ((Math.random() > 0.5) ? 'up' : 'down');
+                curr_shape.img = document.createElement('object');
+                curr_shape.img.data = curr_shape.src;
+                curr_shape.img.name = "shape";
+                curr_shape.img.style.width = ((Math.random() * 400) + 50) + 'px';
+                curr_shape.img.style.height = curr_shape.img.style.width;
+                curr_shape.img.style.top = (Math.random() * height) + 1 + 'px';
+                curr_shape.img.style.left = acceptable_left();
+                document.getElementById('background').appendChild(curr_shape.img);
+                visible.push(curr_shape);
+        }
+}
+    
+function acceptable_left() {
+    var rand = ((Math.random() * width) + 1);
+    if (( rand <= 500) || (rand >= 700))
+            return rand + 'px';
+    else return acceptable_left();
+}
+
+</script>
+
+</body>
+</html>
