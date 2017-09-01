@@ -84,7 +84,7 @@
         background: black;
         left: 49.5%;
         margin-left: -20px;
-        top: 450px;
+        top: 445px;
         z-index: 9999;
 }
 
@@ -170,7 +170,7 @@
 <div class="line" id="resline"></div>
 <div class="line" id="aboutline"></div>
 <div class="line" id="projectline"></div>
-<div class="line" id="contactline"></div>
+<!-- <div class="line" id="contactline"></div> -->
 <div class="background" id="background"></div>
 </p>
 <div id="funfact" onmouseover="innerHTML = 'This background is randomly generated! </br>Try reloading this page to switch it up!';" onmouseout="innerHTML = '';"></div>
@@ -194,8 +194,8 @@ window.onload = function () {
         buttons = [];
         buttons.push(new ResButton("Resume", "resume"));
         buttons.push(new AbtButton("About Me", "aboutme"));
-        buttons.push(new ProjButton("Projects", "projects"));
-        buttons.push(new ContactButton("Contact Me", "contact"));
+        buttons.push(new ProjButton("Contact Me", "projects"));
+        //buttons.push(new ContactButton("Contact Me", "contact"));
         lines = document.getElementsByClassName("line");
         shapes();
 }
@@ -337,8 +337,6 @@ class ProjButton extends MyButton {
 
         callback() {
                 if (clickedmode) {
-                        //var content = document.querySelector('object');
-                        //content.removeAttribute('data');
                         for (var i = 0; i < lines.length; i++) {
                                     if (lines[i].getAttribute("id") != "projectline")
                                     lines[i].style.width = 40 + 'px';
@@ -352,15 +350,18 @@ class ProjButton extends MyButton {
                      len++;
                       if (len > 75) {
                             clearInterval(id);
+                            var obj = document.getElementById('content');
+                            obj.innerHTML = contents('contact');
+                            obj.style.fontSize = 20 + 'px';
+                            obj.style.textAlign = 'center';
+                            obj.style.width = 400 + "px";
+                            obj.style.marginLeft = "-205px";
 
                       } else {
                             thisline.style.width = (3.2*len) + 'px';
                     }
                 }
         }
-        /*onscroll() {
-            this.scrollTop = 1.4;
-        }*/
 }
 
 class ContactButton extends MyButton {
@@ -443,13 +444,13 @@ function contents(label) {
         + "<li><i>Working in and/or leading teams</i></li></ul>";
         
         var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
-        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I am currently a Junior at Tufts University, with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with computers and computers behaving more like people in order to facilitate this. Whether this is through programming, Human-Computer Interaction research, Human-Robotic Interaction research, or simply through experimental psychology research on the ways humans approach problems, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
+        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I am currently a Junior at Tufts University, with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with computers and computers behaving more like people in order to facilitate this. Whether this is through effective design, programming, Human-Computer Interaction research, Human-Robotic Interaction research, or more commercial applications of some of these concepts, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
         + "Outside of my academic interests, I am also involved in several things on and off campus in my life. I am the Music Director for WMFO, Tufts’ radio station. I am also a staff leader for Tufts Wilderness Orientation, a pre-orientation program for incoming students. I play bass guitar, and enjoy practicing and improving at artistic skills like graphic design and fashion design.";
         var contact = "<br/><br/><br/><br/><br/><br/>Phone: 978-505-2641<br/>"
         + "<br/>Email: Avram.Block@tufts.edu<br/>"
-        + "<br/>Address: 165 Cambridge Turnpike<br/>"
-        + "<br/>Concord, MA 01742<br/>";
-        var projects = "";
+        + "<br/>Address: 74 Bromfield Road<br/>"
+        + "<br/>Somerville, MA 02144<br/>";
+        var projects = contact;
         
         switch (label) {
                 case 'resume': 
@@ -461,7 +462,7 @@ function contents(label) {
                 case 'contact':
                         return contact;
                         break;
-                case 'project':
+                case 'projects':
                         return projects;
                         break;
         }
