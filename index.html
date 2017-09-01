@@ -139,6 +139,16 @@
         z-index: 9999;
 }
 
+#funfact {
+        position: fixed;
+        width: 320px;
+        height: 100px;
+        left: 77%;
+        color: black;
+        top: 90%;
+        z-index: 9999;
+}
+
 [name='shape'] {
         position: absolute;
         z-index: 1;
@@ -163,7 +173,7 @@
 <div class="line" id="contactline"></div>
 <div class="background" id="background"></div>
 </p>
-
+<div id="funfact" onmouseover="innerHTML = 'This background is randomly generated! </br>Try reloading this page to switch it up!';" onmouseout="innerHTML = '';"></div>
 <div id ="myContainer">
 <div id ="myAnimation"></div>
 </div>
