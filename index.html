@@ -170,7 +170,7 @@
 <div class="line" id="resline"></div>
 <div class="line" id="aboutline"></div>
 <div class="line" id="projectline"></div>
-<!-- <div class="line" id="contactline"></div> -->
+<div class="line" id="contactline"></div>
 <div class="background" id="background"></div>
 </p>
 <div id="funfact" onmouseout="innerHTML = '';">This background is randomly generated! </br>Try reloading this page to switch it up!<br/><br/>(wave your mouse over here to clear this tip)</div>
@@ -194,8 +194,8 @@ window.onload = function () {
         buttons = [];
         buttons.push(new ResButton("Resume", "resume"));
         buttons.push(new AbtButton("About Me", "aboutme"));
-        buttons.push(new ProjButton("Contact Me", "projects"));
-        //buttons.push(new ContactButton("Contact Me", "contact"));
+        buttons.push(new ContactButton("Contact Me", "contact"));
+	buttons.push(new ProjButton("Projects", "projects"));
         lines = document.getElementsByClassName("line");
         shapes();
 }
@@ -215,7 +215,6 @@ class MyButton {
         this.button.addEventListener("mouseout", function ()
                 { this.style.color = "Black"; } );
 
-        //this.button.addEventListener("click", toggleslide);
 	// Install our button's event handler
 	this.button.onclick = this.callback;
     }
@@ -330,7 +329,7 @@ class AbtButton extends MyButton {
         }*/
 }
 
-class ProjButton extends MyButton {
+class ConButton extends MyButton {
         constructor (label, id) {
                 super(label, id);
         }
@@ -443,8 +442,8 @@ function contents(label) {
         + "<li><i>National Honor Society</i</li>"
         + "</ul><br/><br/>"
         + "<strong>Skills</strong><br/>"
-        + "<ul><li><i>Basic C/C++, Java, JavaScript, HTML, CSS, Python, Android, LaTex, Microsoft Office Suite, Photoshop</i></li>"
-        + "<li><i>Customer service, client interaction</i></li>"
+        + "<ul><li><i>Basic C/C++, Java, JavaScript, HTML, CSS, Python, Android, LaTex, R, D3</i></li>"
+        + "<li><i>Microsoft Office Suite, Adobe Photoshop, SPSS</i></li>"
         + "<li><i>Teamwork and Team Leadership</i></li></ul>";
         
         var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
