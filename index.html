@@ -84,7 +84,7 @@
         background: black;
         left: 49.5%;
         margin-left: -20px;
-        top: 445px;
+        top: 448px;
         z-index: 9999;
 }
 
@@ -152,14 +152,14 @@
 [name='shape'] {
         position: absolute;
         z-index: 1;
-    
+
         -webkit-filter: blur(3px);
         -moz-filter: blur(3px);
         -o-filter: blur(3px);
         -ms-filter: blur(3px);
         filter: blur(3px);
 }
-    
+
 
 </style>
 <div id="name"> Avram Block </div>
@@ -180,7 +180,7 @@
 
 <script>
 var clickedmode;
-    
+
 var width = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
@@ -245,7 +245,7 @@ class MyButton {
                                 }
                                 var obj = document.createElement('div');
                                 obj.id = 'content';
-                                obj.innerHTML = "";  
+                                obj.innerHTML = "";
                                 document.body.appendChild(obj);
                           }
                   }
@@ -315,7 +315,7 @@ class AbtButton extends MyButton {
                       if (len > 75) {
                             clearInterval(id);
                             document.getElementById('content').style.fontSize = 16 + 'px';
-                            document.getElementById('content').style.textAlign = 'center';
+                            document.getElementById('content').style.textAlign = 'left';
                             document.getElementById('content').style.width = 450 + 'px';
                             document.getElementById('content').style.marginLeft = -225 + 'px';
                             document.getElementById('content').innerHTML = contents('about');
@@ -329,7 +329,7 @@ class AbtButton extends MyButton {
         }*/
 }
 
-class ConButton extends MyButton {
+class ProjButton extends MyButton {
         constructor (label, id) {
                 super(label, id);
         }
@@ -350,10 +350,11 @@ class ConButton extends MyButton {
                       if (len > 75) {
                             clearInterval(id);
                             var obj = document.getElementById('content');
-                            obj.innerHTML = contents('contact');
-                            obj.style.fontSize = 20 + 'px';
-                            obj.style.textAlign = 'center';
-                            obj.style.width = 400 + "px";
+                            obj.innerHTML = contents('projects');
+                            obj.style.fontSize = 16 + 'px';
+                            obj.style.textAlign = 'left';
+                            obj.style.width = 500 + "px";
+                            obj.style.height = 1000 + "px";
                             obj.style.marginLeft = "-205px";
 
                       } else {
@@ -444,21 +445,37 @@ function contents(label) {
         + "<strong>Skills</strong><br/>"
         + "<ul><li><i>Basic C/C++, Java, JavaScript, HTML, CSS, Python, Android, LaTex, R, D3</i></li>"
         + "<li><i>Microsoft Office Suite, Adobe Photoshop, SPSS</i></li>"
-        + "<li><i>Teamwork and Team Leadership</i></li></ul>";
-        
+        + "<li><i>Collaboration and Team Leadership</i></li></ul>";
+
         var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
         + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I am currently a Senior at Tufts University, with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with robots and computers, and computers behaving more naturally in order to facilitate this. Whether this is through effective design, programming, Human-Computer Interaction research, Human-Robotic Interaction research, or more commercial applications of some of these concepts, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
         + "Outside of my academic interests, I am also involved in many activities on and off campus. For example, I was the Music Director for WMFO, Tufts’ radio station. I am also a staff leader for Tufts Wilderness Orientation, a pre-orientation program for incoming students. I play bass guitar, and enjoy practicing and improving at artistic skills like graphic design and drawing.";
         var contact = "<br/><br/><br/><br/><br/><br/>Email: Avram.Block@tufts.edu<br/>"
         + "<br/>Phone (US): 978-505-2641<br/>"
         + "<br/>Address (US): 74 Bromfield Road<br/> Somerville, MA 02144<br/><br/>";
-        var projects = contact;
-        
+        var projects = "<br/><br/><strong><font size='+2'>Projects:</font></strong><br/><br/><br/>"
+        + "Intelligent Agent Reinforcement Learning Augmentation: <br/><br/>"
+        + "For this project, my group designed and implemented an augmented reinforcement learning process for intelligent agents. Using an agent designed to learn the Mountain Car Problem, we incorporated real-time human aid into the learning process."
+        + "We did this by analyzing the valence of human audio input in real-time while the agent learned. The agent then incorporated the results of this audio analysis as a positive or negative update to its goal-achievement progress metric.<br/><br/>"
+        + "___________________________________________"
+        + "<br/><br/>Pervasive Computing Workout App: <br/><br/>"
+        + "For this project, I built a rudimentary workout app in Android. The app includes a pre-trained (by me) k-Nearest Neighbors model for classifying physical activity based on accelerometer and gyroscope data."
+        + "When in use, the app supplies a workout to perform for a given duration, and the time remaining before moving to the next activity only decreases when the app detects that the user is in fact performing the instructed activity.<br/><br/>"
+        + "___________________________________________"
+        + "<br/><br/> High School Girls in STEM Info Sessions: <br/><br/>"
+        + "During my time working for the CARES Robotics Laboratory at University of Auckland, my team and I designed and delivered an hour-long informational session on the emerging field of social robotics at high schools around Auckland."
+        + "The goal of these sessions was specifically to introduce high school girls with interests in STEM to the concept of social robotics as an alternative to the traditionally male-dominated and male-marketed mechanical robotics field.<br/><br/>"
+        + "___________________________________________"
+        + "<br/><br/>Human-Robotic Touch Study: <br/><br/>"
+        + "While working in the Tufts University Human-Robotic Interaction Lab, I helped to design and prepare a study on the human response to robotic touch."
+        + "Specifically, the study aimed to assess whether a brief pat on the back from a robot to a human influences the human participant's estimation of the robot's 'mood'.";
+
+
         switch (label) {
-                case 'resume': 
+                case 'resume':
                         return resume;
                         break;
-                case 'about': 
+                case 'about':
                         return about;
                         break;
                 case 'contact':
@@ -470,34 +487,38 @@ function contents(label) {
         }
 }
 
-var visible = [];       
+var visible = [];
 function shapes() {
+        var bound = 0;
         new_shapes(5);
         var id = setInterval(frame, 20);
         var float = 1;
         function frame() {
                 float ++;
-                if ((float % 150) == 0) new_shapes(1);
+                if ((float % 250) == 0) new_shapes(1);
                 for (var i = 0; i < visible.length; i++) {
                         var curr = visible[i];
                         var newtop = float * (.11 * curr.speed);
                         if (curr.dir == 'up'){
-                            newtop *= -1;
+                                newtop *= -1;
                         }
-                        if (curr.orientation == 'vert') curr.img.style.top = (newtop % height)+ 'px';
-                        if (curr.orientation == 'hor') curr.img.style.left = (newtop % width) + 'px';
-
+                        if (curr.orientation == 'vert') {
+                                curr.img.style.top = (newtop % height) + 'px';
+                        }
+                        if (curr.orientation == 'hor') {
+                                curr.img.style.left = (newtop % width) + 'px';
+                        }
                 }
         }
-        
+
 }
 
 function new_shapes(count) {
-    
-        var pos_shapes = ["line1.png", "line2.png", "line3.png", "line4.png", "line5.png", 
+
+        var pos_shapes = ["line1.png", "line2.png", "line3.png", "line4.png", "line5.png",
                             "line6.png", "line7.png", "line8.png", "line9.png", "line10.png",
                             "line11.png", "line12.png", "line13.png", "line14.png"];
-        
+
         for (var i = 0; i < count; i++) {
                 var curr_shape = {dir: 0, orientation: 0, speed: (Math.random() * 10) + 1, src: pos_shapes[Math.floor(Math.random() * 14)], img: 0};
                 curr_shape.orientation = ((Math.random() > 0.5) ? 'vert' : 'hor');
@@ -505,8 +526,9 @@ function new_shapes(count) {
                 curr_shape.img = document.createElement('object');
                 curr_shape.img.data = curr_shape.src;
                 curr_shape.img.name = "shape";
+                curr_shape.img.id = "shape_" + i;
                 curr_shape.img.style.width = ((Math.random() * 400) + 150) + 'px';
-                curr_shape.img.style.height = curr_shape.img.style.width;
+                curr_shape.img.style.height = ((Math.random() * 400) + 150) + 'px';
                 curr_shape.img.style.top = (Math.random() * height) + 1 + 'px';
                 curr_shape.img.style.left = (Math.random() * width) + 1 + 'px';
                 document.getElementById('background').appendChild(curr_shape.img);
