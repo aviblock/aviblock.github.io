@@ -425,15 +425,16 @@ function contents(label) {
                 + "Experimental Psychology, Introduction to Cognitive and Brain Sciences"
                 + "<br/>Data Structures, Object Oriented Programming for GUIs, Machine Structure and Programming, "
                 + "Web Programming, Algorithms</li>"
-                + "<li>GPA: 3.70</li></ul>"
-        + "<li><i> University of Otago (February – June 2018)</i></li>"
+                + "<li>GPA: 3.69</li></ul>"
+        + "<li><i> University of Otago, NZ (February – June 2018)</i></li>"
                 + "<ul><li> Single semester study abroad program </li></ul>"
         + "<li><i>Concord Carlisle Regional High School (2011-2015)</i></li>"
-        + "<li><i>Boston University School of Education - Neuroscience Lab (September – May 2013)</i></li>"
-        + "<li><i>Boston University Medical School - CityLab Biotechnology Scholar (June 2012)</i></li>"
         + "</ul></ul><br/><br/>"
         + "<strong>Experience</strong><br/>"
-        + "<ul><li><i>Research Assistant</i></li>"
+	+ "<ul><li><i>Commercial/Professional</i></li>"
+		+ "<ul><li>Staff Research Programmer - Boston Fusion Corp. (November 2020 - Present)"
+		+ "<br/>Implemented a number of complex ML algorithms for research into advanced realtime decision making and sensor processing, using PyTorch and RL agent frameworks</li>"
+        + "<ul><li><i>Academic Research</i></li>"
                 + "<ul><li>Human Robotic Interaction Lab - Dr. Matthias Scheutz, Tufts University <br/> (May - August 2019)</li>"
 		+ "<li>Human Robotic Interaction Lab - Dr. Matthias Scheutz, Tufts University <br/> (May - August 2017)</li>"
 		+ "<li>CARES Robotics in Healthcare Lab - Dr. Elizabeth Broadbent, University of Auckland (June - August 2018)</li>"
@@ -466,11 +467,11 @@ function contents(label) {
         + "<li><i>Collaboration and Team Leadership</i></li></ul>";
 
         var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
-        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I am currently a Masters Student at Tufts University, studying Human-Robotic Interaction. I graduated from Tufts University with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with robots and computers, and computers behaving more naturally in order to facilitate this. Whether this is through effective design, programming, Human-Computer Interaction research, Human-Robotic Interaction research, or more commercial applications of some of these concepts, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
-        + "Outside of my academic interests, I am also involved in many activities on and off campus. For example, I was the Music Director for WMFO, Tufts’ radio station. I was also a staff leader for Tufts Wilderness Orientation, a pre-orientation program for incoming students. In my free time, I play bass guitar, and enjoy practicing and improving at artistic skills like graphic design and drawing. I recently have begun to explore the potential of programming microcontrollers such as Raspberry Pi and have begun some personal projects in this vein as well.";
-        var contact = "<br/><br/><br/><br/><br/><br/>Email: Avram.Block@tufts.edu<br/>"
+        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I recently graduated from Tufts University with a Masters degree in Human-Robotic Interaction. I also received my undergraduate degree from Tufts University with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with robots and computers, and computers behaving more naturally in order to facilitate this. Whether this is through effective design, programming, Human-Computer Interaction research, Human-Robotic Interaction research, or more commercial applications of some of these concepts, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
+        + "Outside of my academic interests, I also have a number of personal hobbies which motivate me and keep me elastic and creative. In my free time, I play bass guitar, and enjoy practicing and improving at artistic skills like clothing design, graphic design and drawing. I recently have begun to explore the potential of programming microcontrollers such as Raspberry Pi and have begun some personal projects in this vein as well.";
+        var contact = "<br/><br/><br/><br/><br/><br/>Email: aviblock@msn.com<br/>"
         + "<br/>Phone (US): 978-505-2641<br/>"
-        + "<br/>Address (US): 19 Dimick Street<br/> Somerville, MA 02143<br/><br/>";
+        + "<br/>Address (US): 165 Cambridge Turnpike<br/> Concord, MA 01742<br/><br/>";
         var projects = "<br/><br/><strong><font size='+2'>Projects:</font></strong><br/><br/><br/>"
 	+ "Naturalistic Robotic Emotion Expression and Transition: <br/><br/>"
 	+ "For this project (completed at the Tufts Univ. HRI Lab), I developed a system for facilitating smooth transitions between emotional expressions and natural expressive decay over time in a Nao robot."
@@ -558,6 +559,7 @@ function new_shapes(count) {
                 curr_shape.img.style.left = (Math.random() * width) + 1 + 'px';
                 document.getElementById('background').appendChild(curr_shape.img);
                 visible.push(curr_shape);
+		if (visible.length >= 12) visible.shift();
         }
 }
 </script>
