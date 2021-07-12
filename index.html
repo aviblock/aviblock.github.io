@@ -563,7 +563,7 @@ function new_shapes(count) {
                             "line11.png", "line12.png", "line13.png", "line14.png"];
 
         for (var i = 0; i < count; i++) {
-                var curr_shape = {dir: 0, orientation: 0, speed: (Math.random() * 10) + 1, src: pos_shapes[Math.floor(Math.random() * 14)], img: 0};
+                var curr_shape = {dir: 0, orientation: 0, speed: ((Math.random() + 0.1) * 10) + 1, src: pos_shapes[Math.floor(Math.random() * 14)], img: 0};
                 curr_shape.orientation = ((Math.random() > 0.5) ? 'vert' : 'hor');
                 curr_shape.dir = ((Math.random() > 0.5) ? 'up' : 'down');
                 curr_shape.img = document.createElement('object');
