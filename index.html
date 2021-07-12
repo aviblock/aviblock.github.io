@@ -575,7 +575,7 @@ function new_shapes(count) {
                 document.getElementById('background').appendChild(curr_shape.img);
                 visible.push(curr_shape);
 		if (visible.length >= 10) {
-			visible.shift();
+			visible = visible.slice(1);
 		}
         }
 }
