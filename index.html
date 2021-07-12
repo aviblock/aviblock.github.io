@@ -574,7 +574,9 @@ function new_shapes(count) {
                 curr_shape.img.style.left = (Math.random() * width) + 1 + 'px';
                 document.getElementById('background').appendChild(curr_shape.img);
                 visible.push(curr_shape);
-		if (visible.length >= 15) visible.shift();
+		if (visible.length >= 10) {
+			visible.shift();
+		}
         }
 }
 </script>
