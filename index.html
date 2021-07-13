@@ -400,6 +400,7 @@ class ContactButton extends MyButton {
 			    var mailto = document.getElementById('mymailto');
 			    mailto.innerHTML = "aviblock@msn.com";
 			    mailto.href = "mailto:aviblock@msn.com";
+			    mailto.style.zIndex = "10";
 			    mailto.onclick = function(obj) {obj.innerHTML = "clicked";};
                             obj.style.fontSize = 20 + 'px';
                             obj.style.textAlign = 'center';
