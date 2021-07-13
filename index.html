@@ -580,7 +580,9 @@ function new_shapes(count) {
                 document.getElementById('background').appendChild(curr_shape.img);
                 visible.push(curr_shape);
 		if (visible.length >= 10) {
-			visible = visible.slice(1);
+			rmv = visible.shift();
+			bg = document.getElementById('background');
+			bg.removeChild(rmv);
 		}
         }
 }
