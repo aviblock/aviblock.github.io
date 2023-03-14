@@ -18,6 +18,7 @@ var resume_text = "<strong>Education</strong><br/>"
         + "<strong>Experience</strong><br/>"
 	+ "<ul><li><i>Professional</i></li>"
                 + "<ul><li>Human-Robot Interaction - Motional (February 2022 - December 2022)"
+                + "<br/>First ever full-time HRI-focused hire at top five autonomous vehicle company"
                 + "<br/>Led multiple research projects analyzing effective methods for autonomous vehicles to effectively interact with external road users (i.e., pedestrians, cyclists, human drivers)"
 		+ "<li>Staff Research Programmer - Boston Fusion Corp. (November 2020 - Present)"
 		+ "<br/>Implemented a number of complex ML algorithms for research into advanced realtime decision making and sensor processing, using PyTorch and Deep RL frameworks</li>"
@@ -51,8 +52,9 @@ var resume_text = "<strong>Education</strong><br/>"
         + "<li><i>Microsoft Office Suite, Adobe Photoshop, SPSS</i></li>"
         + "<li><i>Collaboration and Team Leadership</i></li></ul><br/><br/><br/> ";
 var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
-        + "My name is Avram Block, but you can call me Avi. My pronouns are He/Him/His. I recently graduated from Tufts University with a Masters degree in Human-Robotic Interaction. I also received my undergraduate degree from Tufts University with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans working closer with robots and computers, and computers behaving more naturally in order to facilitate this. Whether this is through effective design, programming, Human-Computer Interaction research, Human-Robotic Interaction research, or more commercial applications of some of these concepts, I am willing and eager to explore any avenue towards this goal.<br/><br/>"
-        + "Outside of my academic interests, I also have a number of personal hobbies which motivate me and keep me elastic and creative. In my free time, I play bass guitar, and enjoy practicing and improving at artistic skills like clothing design, graphic design and drawing. I recently have begun to explore the potential of programming microcontrollers such as Raspberry Pi and have begun some personal projects in this vein as well.";
+        + "My name is Avram Block, but I usually go by Avi. My pronouns are He/Him/His. I graduated from Tufts University in 2020 with a MSc degree in Human-Robot Interaction. I also received my undergraduate BSc degree from Tufts University with a double major in Cognitive and Brain Sciences and Computer Science. Academically, my interests lie at the intersection of these two fields. I wish to develop products which expand the possibilities of humans existing in close proximity or even in harmony with different kinds of intelligent agents. Whether this is through effective UX design, software development, or experimental psychology style research, I am eager to explore any avenue towards building my skills and achieving this goal.<br/><br/>"
+        + "Outside of my academic interests, I also have a number of personal hobbies which motivate me and keep me learning and growing creatively. I recently have begun to explore the potential of programming microcontrollers such as Raspberry Pi and have begun some personal projects in this vein as well. In my free time, I ski, play bass guitar, and enjoy drawing and embroidery. I also love to read!"
+        + "<br/><br/><br/>I'm currently reading: <br/><br/><a href=\"https://www.goodreads.com/en/book/show/247000\" target=\"_blank\" rel=\"noopener noreferrer\"> The Mezzanine </a> by Nicholson Baker";
 var contact = "<font size=\"+2\"> <br/><br/><br/><a href=\"mailto:aviblock@msn.com\">Email: aviblock@msn.com</a><br/>"
         + "<br/><br/><a href=\"https://www.linkedin.com/in/avram-block/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a><br/>"
         + "<br/><br/>Phone (US): +1 978-505-2641<br/></font>";
@@ -112,10 +114,23 @@ projects["professional"] = "Autonomous Vehicle Design Factors for Communicating 
 + "While at Motional, I conducted quantitative research on effective user experience design for the terminals used for employes to remotely assist an autonomous vehicle in scenarios which it is unable to navigate on its own. "
 + "This project involved gaining expertise in the field of situational awareness, as well as human-machine teaming and trust in HCI systems. "
 + "In order to improve these aspects of the UX, I designed and carried out multiple experiments to provide data-driven recommendations for interface improvements in support of these goals. <br/><br/>";
-projects["personal"] = "<br/><br/>.WavBar: Gesture-based Speaker Controller: <br/><br/>"
-+ "This was a personal project in which I created a prototype version of a speaker controller which was operated solely by a suite of touchless gestures. "
-+ "The program was housed on a Raspberry Pi with two ultrasonic sensors, which detected the presence and height of the user's hand. This data was then categorized into gestures, which were processed as commands to an open-source wrapper of the Sonos and Spotify APIs. "
-+ "This project represents my first exploration into the rich world of embedded computing, which I predict will only continue to skyrocket in coming years, as innocuous devices throughout our environments continue to be imbued with smart, digital capabilities.<br/><br/>";
+
+projects["personal"] = "<br/><br/>.WavBar 1.0: Tactile-based Speaker Controller: <br/><br/>"
++ "This was a personal project in which I created a prototype version of a speaker controller which does not have any digital interface, and is controlled through quick movements of the device along any flat surface. "
++ "The program is housed on a Raspberry Pi with a 9-DOF IMU, which detects the lateral and rotational acceleration of the device. This data is then categorized into gestures, which were processed as commands to an open-source wrapper of the Sonos and Spotify APIs. "
++ "In this first iteration, a swift slide to the right or left translates to a skip/previous track action, sliding up and down translates to pause/resume, and rotating the device to the right or left translates to volume change."
++ "This project represents my first exploration into the rich world of embedded and ubiquitous computing, which I hope will only continue to expand in coming years, as innocuous devices throughout our environments continue to be imbued with smart, digital capabilities.<br/><br/>"
++ "___________________________________________"
++ "<br/><br/>.WavBar 2.0: Touchless-based Speaker Controller: <br/><br/>"
++ "For v2 of this personal project, I created a version of the controller which is both screenless and touchless. "
++ "This program is also housed on a Raspberry Pi, and two ultrasonic sensors, which detect the presence and height of the user's hand. "
++ "In this second iteration, a wave of the hand to the right or left translates to skip/previous track, a hovering hand over either sensor translates to pause/resume, and raisng or lowering a hand over either sensor translates to volume change. <br/><br/>"
++ "___________________________________________"
++ "<br/><br/>.WavBar 3.0: Vision-based Speaker Controller: <br/><br/>"
++ "For v3 of this project, I created a version of the controller which is screenless and touchless, and uses computer vision to analyze hand gestures. "
++ "This program is also housed on a Raspberry Pi, with a 12MP camera, which detects the presence and pose of the user's hand. Landmarks on the hand are determined using the MediaPipe library, and their 3D coordinates are classified jointly using a support vector machine. "
++ "In this third iteration, pointing to the left or right translates to skip/previous track, an open palm translates to pause/resume, and pointing up or down translates to incremental volume change. "
++ "With computational efficiency and camera quality improvements, my goal with this iteration is to create a truly ambient interface, in which the device is able to monitor a room, and detect the appropriate gestures without ever requiring direct interaction with the device. The goal is for the end user to feel as though they are controlling the music playback directly, unmediated by any technological middlemen.<br/><br/><br/><br/><br/><br/>";
 let contents = {};
 contents["resume"] = resume_text;
 contents["aboutme"] = about;

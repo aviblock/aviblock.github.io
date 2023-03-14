@@ -16,6 +16,7 @@ class TopButton {
         this.button.clicked = null;
         this.top = top;
         this.left = this.button.style.left;
+        this.left_og = this.left;
         this.button.left_x = "4%";
 
         document.getElementById("buttonarea").appendChild (this.button);
@@ -59,7 +60,7 @@ class TopButton {
             document.querySelector('#personal').remove();
         } catch (error) {}
         hide_contents();
-        if (this.ba.clicked == null) {
+        if (this.ba.clicked == null || this.ba.clicked == false) {
             console.log('first time');
             slide_left(btns, this);
         }
@@ -280,7 +281,7 @@ function to_unclicked(elem) {
 function slide_left(elems, elem) {
     let lines = document.getElementsByClassName("line");
     console.log(elem.left_x);
-
+    resetted = false;
     anime({
         targets: '#name',
         translateY: -70,
@@ -311,12 +312,36 @@ function slide_left(elems, elem) {
     to_clicked(elem);
 }
 
-function slide_right(elem) {
+function slide_right(elems) {
+    let lines = document.getElementsByClassName("line");
+    for (let i = 0; i < elems.length; i++) {
+        let elem = elems[i];
+        anime({
+            targets: elem.line,
+            width: '40px',
+            easing: 'easeInOutQuad',
+        })
+    }
     anime({
-        targets: elem,
-        translateX: '500',
-        easing: 'easeInOutQuad',
+        targets: elems,
+        left: '43%',
+        easing: 'spring(5, 70, 45, 2)',
+        // duration: 1500,
+        delay: anime.stagger(50),
+        // complete: function() {
+        //     to_clicked(elem);
+        // }
     });
+    
+    anime({
+        targets: lines,
+        translateX: '0%',
+        easing: 'spring(5, 70, 45, 2)',
+        // duration: 1500,
+        delay: anime.stagger(50),
+    });
+    let ba = document.getElementById("buttonarea");
+    ba.clicked = false;
 }
 
 function waver(elem) {
@@ -348,8 +373,19 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+var resetted;
+
 function reset() {
-    console.log('reset');
+    if (!resetted) {
+        document.getElementById("content").innerHTML = "";
+        let btns = document.getElementsByClassName("btn");
+        try {
+            document.querySelector('#academic').remove();
+            document.querySelector('#professional').remove();
+            document.querySelector('#personal').remove();
+        } catch (error) {}
+        slide_right(btns);
+    }
 }
 
 var isMobile
@@ -370,7 +406,9 @@ function setup() {
         isMobile = true;
     }
 
-    var btn1 = new TopButton("Resume", "resume", "22%", isMobile);
+    resetted = true;
+
+    var btn1 = new TopButton("Resumé", "resume", "22%", isMobile);
     var btn2 = new TopButton("About Me", "aboutme", "37%", isMobile);
     var btn3 = new TopButton("Projects", "projects", "52%", isMobile);
     var btn4 = new TopButton("Contact Me", "contact", "67%", isMobile);
