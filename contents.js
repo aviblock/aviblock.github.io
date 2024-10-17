@@ -61,7 +61,7 @@ var about = "<br/><br/><br/><strong>Hey!</strong><br/><br/>"
         + "<br/><br/><br/>I'm currently reading: <br/><br/><a href=\"https://www.goodreads.com/en/book/show/247000\" target=\"_blank\" rel=\"noopener noreferrer\"> The Mezzanine </a> by Nicholson Baker";
 var contact = "<font size=\"+2\"> <br/><br/><br/><a href=\"mailto:aviblock@msn.com\">Email: aviblock@msn.com</a><br/>"
         + "<br/><br/><a href=\"https://www.linkedin.com/in/avram-block/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a><br/>"
-        + "<br/><br/>Phone (US): +1 978-505-2641<br/></font>";
+        + "<br/><br/>Phone (FR): +33 7 44 88 63 92<br/></font>";
 var projects = {}
 projects["academic"] = "Naturalistic Robotic Emotion Expression and Transition: <br/><br/>"
 + "For this project, completed at the Tufts HRI Lab, I developed a system for facilitating smooth transitions between emotional expressions and natural expressive decay over time in a Nao robot. "
