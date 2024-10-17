@@ -16,6 +16,7 @@ var resume_text = "<strong>Education</strong><br/>"
         + "<li><i>Concord Carlisle Regional High School (2011-2015)</i></li>"
         + "</ul></ul><br/><br/>"
         + "<strong>Experience</strong><br/>"
+	+ "<ul><li><i><a href=\https://scholar.google.com/citations?user=-YJaJlQAAAAJ&hl=en\" target=\"_blank\" rel=\"noopener noreferrer\">Publications</a></i></li>
 	+ "<ul><li><i>Professional</i></li>"
 		+ "<ul><li>Human Factors Specialist, Robotics & Automation - Airbus (November 2023 - Present)"
                 + "<br/>First ever full-time HRI-focused employee in manufacturing at world-leading aerospace company"
