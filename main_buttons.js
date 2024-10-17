@@ -83,7 +83,7 @@ class TopButton {
         const svg = document.querySelector("svg");
         svg.appendChild(this.newRect);
 
-        this.newRect.setAttribute("x", "46%");
+        this.newRect.setAttribute("x", this.button.getAttribute("left"));
         this.newRect.setAttribute("class", "line")
         this.newRect.setAttribute("id", this.id + "_line")
         console.log(this.newRect.getAttribute("id"));
